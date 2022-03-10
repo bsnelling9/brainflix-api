@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
                     id: video.id,
                     title: video.title,
                     channel: video.channel,
-                    image: `${URL}:${PORT}/images/${video.image}`
+                    image: `${URL}:${PORT}${video.image}`
                 }
             });
             res.json(videoList);
@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
         const videosData = JSON.parse(data) 
         const foundVideo = videosData.find(video => video.id === req.params.id);
         if (foundVideo){
-            foundVideo.image = `${URL}:${PORT}/images/${foundVideo.image}`
+            foundVideo.image = `${URL}:${PORT}${foundVideo.image}`
             res.json(foundVideo);
         } else {
             return res.status(404).send({
