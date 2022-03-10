@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 app.use(express.json());
 app.use(express.static('public'));
 app.use(cors());
-app.use(videoRoutes);
+app.use('/videos', videoRoutes);
 
 app.listen(PORT, () => {
     console.log(`Hello! My server is listening on ${PORT}`);
